@@ -3,10 +3,19 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,500,600,700,300);
 
 /**
  * App-wide Styles
  */
+body {
+  font-family: 'Raleway';
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat';
+  font-weight: 700;
+}
 
 .browsehappy {
     margin: 0.2em 0;

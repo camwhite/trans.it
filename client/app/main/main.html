@@ -1,38 +1,34 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
+<div class="hero-unit">
   <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
+    <h1>trans.it</h1>
+    <p class="lead">
+      “Transit, your first stop, step, click to translation around the world”
+    </p>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
-      </ul>
+    <a class="btn btn-lg btn-success" ng-show="!user.id" ng-href="/sign_up">Sign Up<span class="glyphicon glyphicon-ok"></span></a>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="selling-points row">
+    <div class="point col-md-4">
+      <h2>How it Works</h2>
+      <p>
+        Trans.it gives the user a fun and interactive way to translate from any language of their choice. Whether you’re helping a friend, lost in a country and need direction, or just want to interact with someone around the world, trans.it is your first and last stop to translation.
+      </p>
+    </div>
+    <div class="point col-md-4">
+      <h2>Translators</h2>
+      <p>
+        At Trans.it we have volunteer translators around the world who progress on a merit basis showcasing their translation skills. Your language barrier is their ticket to moving you along your journey.
+      </p>
+    </div>
+    <div class="point col-md-4">
+      <h2>Around the World</h2>
+      <p>
+        Exciting isn’t it? Without leaving the comfort of your own man/woman cave you have the ability to travel the world. Now don’t pack your suitcase just yet, we are providing you with an experience and one that will have you sharing trans.it to all your friends!
+      </p>
     </div>
   </div>
-
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
-      </span>
-    </p>
-  </form>
 </div>
-
-<footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.0.13 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>
