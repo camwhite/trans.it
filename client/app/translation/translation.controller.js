@@ -1,6 +1,44 @@
 'use strict';
 
 angular.module('transitApp')
-  .controller('TranslationCtrl', function ($scope) {
-    $scope.message = 'Hello';
+  .controller('TranslationCtrl', function ($scope, $http) {
+$scope.languages = [
+      {name: 'Russian'},
+      {name: 'English'}
+    ];
+
+    $scope.text = '';
+
+    var recognition = new webkitSpeechRecognition();
+
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = function(event) {
+      for(var i = event.resultIndex; i < event.results.length; ++i) {
+        $scope.$apply(function() {
+          $scope.text = event.results[i][0].transcript;
+        });
+        if(event.results[i].isFinal) {
+          $scope.$apply(function() {
+            $scope.text = event.results[i][0].transcript;
+          });
+        }
+      }
+    };
+
+    $scope.on = false;
+
+    $scope.startStop = function() {
+      $scope.on = !$scope.on;
+      if($scope.on) {
+        recognition.start();
+      }
+      if(!$scope.on) {
+        recognition.stop();
+      }
+    };
+    $scope.submitTranslation = function() {
+      $http.post('api/things', {name: 'test', info: $scope.text});
+    }
   });
