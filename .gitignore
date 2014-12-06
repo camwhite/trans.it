@@ -6,4 +6,6 @@ public
 client/bower_components
 dist
 /server/config/local.env.js
-.DS-Store
+.DS_Store
+client/.DS_Store
+client/assets/.DS_Store
