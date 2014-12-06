@@ -1,0 +1,42 @@
+.translator {
+  section:nth-child(2) {
+    border-left: 4px solid #ccc;
+    form {
+      position: relative;
+      width: 375px;
+      margin: 90px auto;
+      textarea {
+        display: block;
+        width: 375px;
+        height: 322px;
+        font-family: 'Lato';
+        font-size: 22px;
+        resize: none;
+      }
+      .fa {
+        position: absolute;
+        bottom: 40px;
+        right: -40px;
+        padding: 14px 20px;
+        background: dodgerblue;
+        color: white;
+        border-radius: 100%;
+        font-size: 28px;
+        cursor: pointer;
+        &.active {
+          background: red;
+        }
+      }
+    }
+  }
+  section:nth-child(1) {
+    position: relative;
+    height: 600px;
+    figure{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

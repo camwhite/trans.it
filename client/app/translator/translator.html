@@ -1,3 +1,28 @@
-<div class="col-md-12">
-This is the translator view.
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container-fluid translator">
+  <div class="row">
+    <section class="col-md-6">
+      <div class="container-fluid">
+        <div class="from-to">
+          <span>From</span>
+          {{ translation.fromLang }}
+          <span>to</span>
+          {{ translation.toLang }}
+        </div>
+      </div>
+    </section>
+    <section class="col-md-6">
+      <div class="container-fluid">
+
+        <form>
+          <div class="form-group">
+            <textarea type="text" ng-model="text"></textarea>
+            <i ng-class="{active: on}" ng-click="startStop()" class="fa fa-microphone"></i>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" ng-click="submitTranslation()">Submit Translation</button>
+        </form>
+      </div>
+    </section>
+  </div>
 </div>

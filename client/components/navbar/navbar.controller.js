@@ -2,10 +2,20 @@
 
 angular.module('transitApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+    $scope.menu = [
+    {
+      'title': 'Translation',
+      'link': '/translation'
+    },
+    {
+      'title': 'Queue',
+      'link': '/que'
+    },
+    {
+      'title': 'Translator',
+      'link': '/translator'
+    }
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
