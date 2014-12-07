@@ -16,11 +16,11 @@ angular.module('transitApp')
       $scope.userLangs.push($scope.userLang);
       $scope.userLang = '';
     };
-    var role = 'user';
-    if ($scope.translator) {
-      role = 'translator';
-    }
     $scope.register = function(form) {
+      var role = 'user';
+      if ($scope.translator) {
+        role = 'translator';
+      }
       $scope.submitted = true;
 
       if(form.$valid) {

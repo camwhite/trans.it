@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/transit-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };

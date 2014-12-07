@@ -32,7 +32,8 @@ angular.module('transitApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
     console.log("current user role = ", $scope.getCurrentUser().role);
-    $scope.isTranslator = ($scope.getCurrentUser().role === "translator");
+    $scope.isTranslator = Auth.isTranslator;
+    $scope.isUser = Auth.isUser;
 
 
 
