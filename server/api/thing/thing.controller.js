@@ -40,32 +40,25 @@ exports.next = function(req, res) {
       console.log(arguments);
     });
     return res.json(200, thing[0]);
-  });
+  })};
 
 
+exports.translator = function(req, res) {
+    // var thingId = req.body._id;
+    // Thing.update({_id: thingId}, {active: true});
+    // Thing.save(function(err) {
+    //   if (err) return validationError(res, err);
+    //   res.send(200);
+    // })
 
-
-
-  // Thing.findById(id, function(err, thing) {
-  //   thing.update({_id: id}, {active: true});
-  //   thing.save(function(err) {
-  //     if (err) return validationError(res, err);
-  //     res.send(200);
-  //   })
-  // })
-  // Thing.find(function (err, things) {
-  //   if(err) { return handleError(res, err); }
-  //   things.sort({_id: -1}, function(err, things) {
-  //     if(err) { return handleError(res, err); }
-  //     return res.json(200, things)
-  //   });
-  // });
-  //
-  // Thing.find(function (err, things) {
-  //   if(err) { return handleError(res, err); }
-  //   return res.json(200, things.sort({_id: -1}).limit(1));
-  // });
-
+    Thing.find({translatorId: req.params.id}).exec(function(err, things) {
+      if(err) { return handleError(res, err); }
+        if(things.length === 0) {
+          return res.json(404);
+        }
+        return res.json(200, things);
+      }
+    )
 };
 
 // Get a single thing
