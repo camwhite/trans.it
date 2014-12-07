@@ -15,7 +15,7 @@ angular.module('transitApp')
     // admin - all items
     // translator - my translated items, open items with my languages
     // user - my items
-    $scope.filterMyQItems = function(thing) {
+    $scope.isMyThing = function(thing) {
 
       var myItem = false;
       // pull values from our thing object & set defaults if undefined
@@ -58,7 +58,19 @@ angular.module('transitApp')
         myItem = true; // admins get to see everything
       }
       return myItem;
+    } // $scope.isMyThing
+
+    $scope.filterMyCompletedItems = function(thing) {
+      var returnVal = ($scope.isMyThing(thing) && (thing.translatedMessage != undefined));
+      return returnVal;
     }
+
+    $scope.filterMyPendingItems = function(thing) {
+      var returnVal = ($scope.isMyThing(thing) && (thing.translatedMessage === undefined));
+      return returnVal
+    }
+
+
 
     $scope.checkState = function(arg) {
       return arg != undefined;
