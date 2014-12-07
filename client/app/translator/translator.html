@@ -6,10 +6,16 @@
       <div class="container-fluid">
         <div class="from-to">
           <span>From</span>
-          {{ translation.fromLang }}
+          {{ thing.fromLang }}
           <span>to</span>
-          {{ translation.toLang }}
+          {{ thing.toLang }}
         </div>
+        <article>
+          <h2>{{ thing.title }}</h2>
+          <p>
+            {{ thing.messageToBeTranslated }}
+          </p>
+        </article>
       </div>
     </section>
     <section class="col-md-6">

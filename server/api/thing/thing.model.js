@@ -4,8 +4,11 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ThingSchema = new Schema({
-  name: String,
-  info: String,
+  title: String,
+  messageToBeTranslated: String,
+  translatedMessage: String,
+  fromLang: String,
+  toLang: String,
   active: Boolean
 });
 
