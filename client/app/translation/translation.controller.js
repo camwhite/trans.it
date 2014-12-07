@@ -39,6 +39,13 @@ $scope.languages = [
       }
     };
     $scope.submitTranslation = function() {
-      $http.post('api/things', {name: 'test', info: $scope.text});
+      $http.post('api/things', {title: $scope.title, messageToBeTranslated: $scope.text, fromLang: $scope.fromLang, toLang: $scope.toLang});
     }
+    
+    $scope.title = '';
+    $scope.fromlang = '';
+    $scope.toLang = '';
+    
   });
+
+    
