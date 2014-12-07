@@ -38,6 +38,26 @@ $scope.languages = [
         recognition.stop();
       }
     };
+
+    $scope.notOkToSubmit = function() {
+      console.log("notOkToSubmit", $scope.fromLang, $scope.toLang, $scope.text);
+
+      var notOk = ($scope.fromLang === undefined) ||
+                  ($scope.fromLang.length === 0) ||
+                  ($scope.toLang === undefined) ||
+                  ($scope.toLang.length === 0) ||
+                  ($scope.text === undefined) ||
+                  ($scope.text.length === 0);
+      console.log('NotOk return val', notOk);
+      if (!notOk) {
+        console.log('fromLang', $scope.fromLang,
+                     'toLang', $scope.toLang,
+                     'text', $scope.text);
+      }
+      return notOk;
+
+    };
+
     $scope.submitTranslation = function() {
       $http.post('api/things', {userObjId: Auth.getCurrentUser()._id, title: $scope.title,
         messageToBeTranslated: $scope.text, fromLang: $scope.fromLang,
