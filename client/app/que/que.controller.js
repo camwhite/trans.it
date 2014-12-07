@@ -61,6 +61,6 @@ angular.module('transitApp')
     }
 
     $scope.checkState = function(arg) {
-      return arg === undefined;
+      return arg != undefined;
     }
   });
