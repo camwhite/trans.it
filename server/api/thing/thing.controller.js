@@ -11,6 +11,7 @@
 
 var _ = require('lodash');
 var Thing = require('./thing.model');
+var mongoose = require('mongoose');
 
 // Get list of things
 exports.index = function(req, res) {
@@ -18,6 +19,53 @@ exports.index = function(req, res) {
     if(err) { return handleError(res, err); }
     return res.json(200, things);
   });
+};
+
+exports.next = function(req, res) {
+  // var thingId = req.body._id;
+  // Thing.update({_id: thingId}, {active: true});
+  // Thing.save(function(err) {
+  //   if (err) return validationError(res, err);
+  //   res.send(200);
+  // })
+
+  Thing.find({translatedMessage: {$exists: false}}).sort({_id: 1}).limit(1).exec(function(err, thing) {
+    if(thing.length === 0) {
+      return res.json(404);
+    }
+    var thingId = mongoose.Types.ObjectId(thing[0]._id);
+    console.log(thingId)
+    if(err) { return handleError(res, err); }
+    Thing.update({_id: thingId}, {$set: {active: true}}, {}, function(err, doc, lastErr) {
+      console.log(arguments);
+    });
+    return res.json(200, thing[0]);
+  });
+
+
+
+
+
+  // Thing.findById(id, function(err, thing) {
+  //   thing.update({_id: id}, {active: true});
+  //   thing.save(function(err) {
+  //     if (err) return validationError(res, err);
+  //     res.send(200);
+  //   })
+  // })
+  // Thing.find(function (err, things) {
+  //   if(err) { return handleError(res, err); }
+  //   things.sort({_id: -1}, function(err, things) {
+  //     if(err) { return handleError(res, err); }
+  //     return res.json(200, things)
+  //   });
+  // });
+  //
+  // Thing.find(function (err, things) {
+  //   if(err) { return handleError(res, err); }
+  //   return res.json(200, things.sort({_id: -1}).limit(1));
+  // });
+
 };
 
 // Get a single thing
