@@ -3,8 +3,8 @@
 <div class="container-fluid que">
   <figure ng-repeat="thing in things" class="col-md-4">
     <div class="card">
-      <h2>{{ thing.name }}</h2>
-      <p>{{ thing.description }}</p>
+      <h2><a ng-href="/translator/{{thing._id}}">{{ thing.title }}</a></h2>
+      <p>From {{thing.fromLang }} to {{ thing.toLang }}</p>
     </div>
   </figure>
 </div>
