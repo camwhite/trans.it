@@ -126,12 +126,17 @@ angular.module('transitApp')
           cb(false);
         }
       },
-
       /**
        * Check if a user is an admin
        *
        * @return {Boolean}
        */
+       isUser: function() {
+         return currentUser.role === 'user';
+       },
+       isTranslator: function() {
+         return currentUser.role === 'translator';
+       },
       isAdmin: function() {
         return currentUser.role === 'admin';
       },

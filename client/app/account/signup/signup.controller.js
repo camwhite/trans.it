@@ -5,7 +5,6 @@ angular.module('transitApp')
     $scope.user = {};
     $scope.errors = {};
 
-    $scope.translator = false;
     $scope.languages = [
       {name: 'Russian'},
       {name: 'English'}
@@ -17,14 +16,18 @@ angular.module('transitApp')
       $scope.userLangs.push($scope.userLang);
       $scope.userLang = '';
     };
-
     $scope.register = function(form) {
+      var role = 'user';
+      if ($scope.translator) {
+        role = 'translator';
+      }
       $scope.submitted = true;
 
       if(form.$valid) {
         Auth.createUser({
           name: $scope.user.name,
           email: $scope.user.email,
+          role: role,
           password: $scope.user.password,
           languages: $scope.userLangs
         })
