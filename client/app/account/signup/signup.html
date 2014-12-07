@@ -59,7 +59,7 @@
           <input type="checkbox" name="translator" id="translator" ng-model="translator" />
         </div>
         <div class="form-group" ng-show="translator">
-          <label>Choose your languages</label>
+          <label>Please choose atleast 2 languages</label>
           <select id="lang" name="lang" ng-model="userLang">
             <option ng-repeat="language in languages" value="{{ language.name }}">
               {{ language.name }}
@@ -75,9 +75,9 @@
           <button class="btn btn-inverse btn-lg btn-login" type="submit" ng-click="register(form)">
             Sign up
           </button>
-          <a class="btn btn-default btn-lg btn-register" href="/login">
-            Login
-          </a>
+        </div>
+        <div>
+          Already registered? Login <a href="/login">here</a>
         </div>
 
       </form>
