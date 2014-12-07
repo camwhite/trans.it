@@ -27,7 +27,7 @@
             <textarea type="text" ng-model="text"></textarea>
             <i ng-class="{active: on}" ng-click="startStop()" class="fa fa-microphone"></i>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg" ng-click="submitTranslation()">Request Translation</button>
+          <button type="submit" class="btn btn-primary btn-lg" ng-disabled="notOkToSubmit()" ng-click="submitTranslation()">Request Translation</button>
         </form>
       </div>
     </section>
