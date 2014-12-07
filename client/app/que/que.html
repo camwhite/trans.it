@@ -4,7 +4,7 @@
   <figure ng-repeat="thing in things | filter: filterMyQItems" class="col-md-4">
     <div class="card" ng-class="{active: checkState(thing.translatedMessage)}">
       <h2><a ng-href="/translator/{{thing._id}}">{{ thing.title }}</a></h2>
-      <p>From {{thing.fromLang }} to {{ thing.toLang }} {{thing.translatedMessage}}</p>
+      <p>From {{thing.fromLang }} to {{ thing.toLang }}</p>
     </div>
   </figure>
 </div>

@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var ThingSchema = new Schema({
   userObjId: Schema.Types.ObjectId,
+  translatorId: Schema.Types.ObjectId,
   title: String,
   messageToBeTranslated: String,
   translatedMessage: String,

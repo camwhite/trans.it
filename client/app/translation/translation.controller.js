@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('transitApp')
-  .controller('TranslationCtrl', function ($scope, $http, Auth) {
+  .controller('TranslationCtrl', function ($scope, $http, Auth, $location) {
 $scope.languages = [
       {name: 'Russian'},
       {name: 'English'}
@@ -41,9 +41,10 @@ $scope.languages = [
     $scope.submitTranslation = function() {
       $http.post('api/things', {userObjId: Auth.getCurrentUser()._id, title: $scope.title,
         messageToBeTranslated: $scope.text, fromLang: $scope.fromLang,
-        toLang: $scope.toLang}).success(function() {
+        toLang: $scope.toLang, active: false}).success(function() {
           $scope.title = '';
           $scope.text = '';
+          $location.path('/que');
         })
 
     }
