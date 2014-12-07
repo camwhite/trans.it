@@ -15,31 +15,35 @@ angular.module('transitApp')
     // admin - all items
     // translator - my translated items, open items with my languages
     // user - my items
-    $scope.filterMyQItems = function(qItem) {
-      var myItem = true; // default for the admin user
+    $scope.filterMyQItems = function(thing) {
 
+      var myItem = false;
+      // pull values from our thing object & set defaults if undefined
+      var translatorId = (thing.translatorId === undefined) ? -1 : thing.translatorId;
+      var userObjId = (thing.userObjId === undefined) ? -1 : thing.userObjId;
+      var fromLang = (thing.fromLang === undefined) ? "" : thing.fromLang;
+      var toLang = (thing.toLang === undefined) ? "" : thing.toLang;
+      var languages = ($scope.curUserLanguages === undefined) ? [] : $scope.curUserLanguages;
 
       if ($scope.isTranslator) {
         // first check to see if I created this item, or if I translated this item
-        if ($scope.curUserObjId === qItem.userObjId || qItem.translatorId == $scope.curUserObjId) {
+        if ($scope.curUserObjId === userObjId || translatorId == $scope.curUserObjId) {
           myItem = true;
         } else {
           // not mine, so check to see if status is open, and I know the language
-          if (qItem.translatedMessage === undefined && !qItem.active) { // item is open
+          if (thing.translatedMessage === undefined && !thing.active) { // item is open
             // check if I know the from & to languages
             var knowFromLang = false;
             var knowToLang = false;
-            var fromLang = qItem.fromLang;
-            var toLang = qItem.toLang
-            for (var i = 0; i < qItem.languages.length; i++) {
-              if (fromLang == qItem.languages[i]) {
+            for (var i = 0; i < languages.length; i++) {
+              if (fromLang == languages[i]) {
                 knowFromLang = true;
               }
-              if (toLang == qItem.languages[i]) {
+              if (toLang == languages[i]) {
                 knowToLang = true;
               }
             }
-            if (knowToLang && knowFromLang {
+            if (knowToLang && knowFromLang) {
               myItem = true;
             }
           } else {
@@ -49,11 +53,13 @@ angular.module('transitApp')
         }
       } else if (!$scope.isAdmin) { //means we are a user
         // return true if I created this item
-        myItem = ($scope.curUserObjId === qItem.userObjId);
+        myItem = ($scope.curUserObjId === userObjId);
+      } else {
+        myItem = true; // admins get to see everything
       }
       return myItem;
     }
-    
+
     $scope.checkState = function(arg) {
       return arg === undefined;
     }
