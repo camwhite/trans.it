@@ -22,4 +22,12 @@ angular.module('transitApp')
       })
 
       }
+
+      $scope.skipTranslation = function() {
+        $http.get('api/things/next').success(function(data) {
+          $scope.thing = data;
+          $scope.translated = '';
+        });
+      }
+
   });

@@ -1,7 +1,17 @@
 'use strict';
 
 angular.module('transitApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $http) {
+    // $scope.getNext = function() {
+    //   $http.get('api/things/next').success(function(data) {
+    //     $scope.thing = data;
+    //   });
+    //   if($scope.thing === undefined) {
+    //     return '/que';
+    //   }
+    //   return '/translator/' + $scope.thing._id;
+    // }
+
     $scope.userMenu = [
     {
       'title': 'Translation',
@@ -20,11 +30,11 @@ angular.module('transitApp')
     {
       'title': 'Queue',
       'link': '/que'
-    },
-    {
-      'title': 'Translator',
-      'link': '/translator'
     }
+    // {
+    //   'title': 'Translator',
+    //   'link': $scope.getNext()
+    // }
     ];
 
     $scope.isCollapsed = true;
