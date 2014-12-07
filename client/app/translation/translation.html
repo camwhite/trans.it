@@ -6,19 +6,23 @@
       <div class="container-fluid">
         <div class="from-to">
           <span>From</span>
-          <select id="lang" name="lang">
+          <select id="lang" name="lang" ng-model="fromLang">
             <option ng-repeat="language in languages" value="{{ language.name }}">
               {{ language.name }}
             </option>
           </select>
           <span>to</span>
-          <select id="lang" name="lang">
+          <select id="lang" name="lang" ng-model="toLang">
             <option ng-repeat="language in languages" value="{{ language.name }}">
               {{ language.name }}
             </option>
           </select>
         </div>
         <form>
+          <div class="form group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" ng-model="title"/>
+          </div>
           <div class="form-group">
             <textarea type="text" ng-model="text"></textarea>
             <i ng-class="{active: on}" ng-click="startStop()" class="fa fa-microphone"></i>
