@@ -45,6 +45,8 @@ angular.module('transitApp')
                   ($scope.fromLang.length === 0) ||
                   ($scope.toLang === undefined) ||
                   ($scope.toLang.length === 0) ||
+                  ($scope.title === undefined) ||
+                  ($scope.title.length === 0) ||
                   ($scope.text === undefined) ||
                   ($scope.text.length === 0);
 
