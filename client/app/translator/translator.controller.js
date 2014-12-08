@@ -5,13 +5,14 @@ angular.module('transitApp')
 
     $http.get('api/things/' + $stateParams.thingId).success(function(data) {
       $scope.thing = data;
+      $scope.translated = data.translatedMessage;
     });
+
+    $scope.isTranslator = Auth.isTranslator;
 
     $http.get('api/things/next').success(function(data) {
       console.log(data);
     });
-
-    $scope.translated = '';
 
     $scope.updateTranslatedCount = function() {
       $http.get('api/things/translator/' + Auth.getCurrentUser()._id)

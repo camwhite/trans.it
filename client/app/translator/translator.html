@@ -20,15 +20,21 @@
     </section>
     <section class="col-md-6">
       <div class="container-fluid">
-        <div class="translator-header">
+        <div class="translator-header" ng-show="isTranslator()">
           # Translations Completed: {{ translatedCount }}
+        </div>
+        <div class="translator-header" ng-hide="translated">
+          <h3>Translation Pending</h3>
+        </div>
+        <div class="translator-header" ng-show="translated">
+          <h3>Translation Complete</h3>
         </div>
         <form>
           <div class="form-group">
             <textarea type="text" ng-model="translated"></textarea>
-            <i ng-class="{active: on}" ng-click="startStop()" class="fa fa-microphone"></i>
+            <i ng-class="{active: on}" ng-click="startStop()" ng-show="isTranslator()" class="fa fa-microphone"></i>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg" ng-click="submitTranslation()">Submit Translation</button>
+          <button type="submit" class="btn btn-primary btn-lg" ng-show="isTranslator()" ng-click="submitTranslation()">Submit Translation</button>
         </form>
       </div>
     </section>
