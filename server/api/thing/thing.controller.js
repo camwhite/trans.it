@@ -12,6 +12,7 @@
 var _ = require('lodash');
 var Thing = require('./thing.model');
 var mongoose = require('mongoose');
+var mailgun = require('mailgun-js')({apiKey: 'key-7423sifnvm7rupz0mtghbetv75lk8vn0', domain: 'sandbox6901a96b002d4655bc9425a02953f225.mailgun.org'});
 
 // Get list of things
 exports.index = function(req, res) {
@@ -76,6 +77,23 @@ exports.create = function(req, res) {
     if(err) { return handleError(res, err); }
     return res.json(201, thing);
   });
+};
+
+// Sends mail message
+exports.mail = function(req, res) {
+
+  var data = {
+    from: 'transit@trans.it',
+    to: req.body.recipient,
+    subject: req.body.subject,
+    text: req.body.content
+  };
+  console.log('sending email', req.body.recipient, req.body.subject, req.body.content);
+  
+  mailgun.messages().send(data, function (error, body) {
+
+  });
+
 };
 
 // Updates an existing thing in the DB.

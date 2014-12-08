@@ -40,7 +40,6 @@ angular.module('transitApp')
     };
 
     $scope.notOkToSubmit = function() {
-      console.log("notOkToSubmit", $scope.fromLang, $scope.toLang, $scope.text);
 
       var notOk = ($scope.fromLang === undefined) ||
                   ($scope.fromLang.length === 0) ||
@@ -54,6 +53,9 @@ angular.module('transitApp')
     };
 
     $scope.submitTranslation = function() {
+      $http.post('api/things/mail', {recipient: 'irwin.litvak@gmail.com',
+                   subject: 'Translation Requested',
+                   content: 'Please log on and complete translation'}).success(function(data){});
       $http.post('api/things', {userObjId: Auth.getCurrentUser()._id, title: $scope.title,
         messageToBeTranslated: $scope.text, fromLang: $scope.fromLang,
         toLang: $scope.toLang, active: false}).success(function() {
