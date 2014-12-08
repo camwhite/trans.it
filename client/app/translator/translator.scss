@@ -9,8 +9,6 @@
         display: block;
         width: 375px;
         height: 322px;
-        font-family: 'Lato';
-        font-size: 22px;
         resize: none;
       }
       .fa {
@@ -32,11 +30,6 @@
   section:nth-child(1) {
     position: relative;
     height: 600px;
-    figure{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+    
   }
 }

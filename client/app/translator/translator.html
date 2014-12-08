@@ -5,13 +5,16 @@
     <section class="col-md-6">
       <div class="container-fluid">
         <div class="from-to">
-          <span>From</span>
-          {{ thing.fromLang }}
-          <span>to</span>
-          {{ thing.toLang }}
+          <h4>
+            <span>From</span>
+            {{ thing.fromLang }}
+            <span>to</span>
+            {{ thing.toLang }}
+          </h4>
         </div>
         <article>
-          <h2>{{ thing.title }}</h2>
+          <h3>{{ thing.title }}</h3>
+          <hr>
           <p>
             {{ thing.messageToBeTranslated }}
           </p>
@@ -21,7 +24,7 @@
     <section class="col-md-6">
       <div class="container-fluid">
         <div class="translator-header" ng-show="isTranslator()">
-          # Translations Completed: {{ translatedCount }}
+          Translations Completed: {{ translatedCount }}
         </div>
         <div class="translator-header" ng-hide="translated">
           <h3>Translation Pending</h3>
@@ -40,3 +43,5 @@
     </section>
   </div>
 </div>
+
+<div ng-include="'components/footer/footer.html'"></div>
