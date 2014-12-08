@@ -4,21 +4,22 @@
   <div class="row">
     <section class="col-md-6">
       <div class="container-fluid">
-        <div class="from-to">
-          <span>From</span>
-          <select id="lang" name="lang" ng-model="fromLang">
-            <option ng-repeat="language in languages" value="{{ language.name }}">
-              {{ language.name }}
-            </option>
-          </select>
-          <span>to</span>
-          <select id="lang" name="lang" ng-model="toLang">
-            <option ng-repeat="language in languages" value="{{ language.name }}">
-              {{ language.name }}
-            </option>
-          </select>
-        </div>
+
         <form>
+          <div class="from-to">
+            <span>From</span>
+            <select id="lang" name="lang" ng-model="fromLang">
+              <option ng-repeat="language in languages" value="{{ language.name }}">
+                {{ language.name }}
+              </option>
+            </select>
+            <span>to</span>
+            <select id="lang" name="lang" ng-model="toLang">
+              <option ng-repeat="language in languages" value="{{ language.name }}">
+                {{ language.name }}
+              </option>
+            </select>
+          </div>
           <div class="form group">
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" ng-model="title"/>
@@ -34,7 +35,7 @@
     <section class="col-md-6">
       <div class="container-fluid">
         <figure>
-          <h3>Your translation will appear here upon completion</h3>
+          <h3>Click on Queue above to see your completed translations.</h3>
         </figure>
       </div>
     </section>

@@ -4,12 +4,28 @@ angular.module('transitApp')
   .controller('QueCtrl', function ($scope, $http, Auth) {
     $http.get('api/things').success( function(data){
       $scope.things = data;
+
+      for (var i=0; i < $scope.things.length; i++) {
+        var mine = $scope.isMyThing($scope.things[i]);
+        if (mine) {
+          if ($scope.things[i].translatedMessage === undefined) {
+            $scope.havePendingItems = true;
+          } else {
+            $scope.haveCompletedItems = true;
+          }
+        }
+      }
     });
 
     $scope.curUserObjId = Auth.getCurrentUser()._id;
     $scope.isTranslator = Auth.isTranslator();
     $scope.isAdmin = Auth.isAdmin();
     $scope.curUserLanguages = Auth.getCurrentUser().languages;
+
+    $scope.haveCompletedItems = false;
+    $scope.havePendingItems = false;
+
+
 
     // filter out q items based on user role and user id
     // admin - all items

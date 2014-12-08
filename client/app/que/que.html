@@ -1,6 +1,6 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<h2>Pending Items</h2>
+<h3 ng-show="havePendingItems">Pending Translations</h3>
 <div class="container-fluid que">
   <figure ng-repeat="thing in things | filter: filterMyPendingItems" class="col-md-4">
     <div class="card" ng-class="{active: checkState(thing.translatedMessage)}">
@@ -9,7 +9,7 @@
     </div>
   </figure>
 </div>
-<h2>Completed Items</h2>
+<h3 ng-show="haveCompletedItems">Completed Translations</h3>
 <div class="container-fluid que">
   <figure ng-repeat="thing in things | filter: filterMyCompletedItems" class="col-md-4">
     <div class="card" ng-class="{active: checkState(thing.translatedMessage)}">

@@ -2,7 +2,7 @@
 
 angular.module('transitApp')
   .controller('TranslationCtrl', function ($scope, $http, Auth, $location) {
-$scope.languages = [
+    $scope.languages = [
       {name: 'Russian'},
       {name: 'English'}
     ];
@@ -48,12 +48,7 @@ $scope.languages = [
                   ($scope.toLang.length === 0) ||
                   ($scope.text === undefined) ||
                   ($scope.text.length === 0);
-      console.log('NotOk return val', notOk);
-      if (!notOk) {
-        console.log('fromLang', $scope.fromLang,
-                     'toLang', $scope.toLang,
-                     'text', $scope.text);
-      }
+
       return notOk;
 
     };
