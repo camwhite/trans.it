@@ -8,6 +8,7 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/next', controller.next);
 router.get('/translator/:id', controller.translator);
+router.post('/mail', controller.mail);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);
