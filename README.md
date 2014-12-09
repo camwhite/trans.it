@@ -94,7 +94,7 @@ Wait until 12AM midnight of 12/8/14 and it will be available. Follow the link to
 # Does it cost anything initially to use?
 
 For the time being the application will be FREE, but in the near future when we implement paid sessions for translators
-there will be a fee.
+and there will be a fee.
 
 
 Thanks for reading about Trans.it and TEAM IRON SQUAD.
